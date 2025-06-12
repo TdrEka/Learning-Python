@@ -41,9 +41,9 @@ PI = 3.14
 un_2 = 2
 _ = 1
 
-Número = "Número"
-print(Número)
-print(len(Número))
+Numero = "Número"
+print(Numero)
+print(len(Numero))
 
 mi_nombre = "Ángel"
 miNombre = "Ángel"
@@ -118,15 +118,17 @@ print(texto1[-1])
 
 print(len(texto3))
 
-nombre = input("Nombre: ")
-print("-> " + nombre)
-print(len(nombre.strip()) == 0)
+# nombre = input("Nombre: ")
+#print("-> " + nombre)
+#print(len(nombre.strip()) == 0)
 
-email = input("Email: ")
-es_de_empresa = not email.endswith("gmail.com")
-print("Este email es de empresa?: " + str(es_de_empresa))
+#email = input("Email: ")
+#es_de_empresa = not email.endswith("gmail.com")
+#print("Este email es de empresa?: " + str(es_de_empresa))
 
-print(email.split("@"))
+#print(email.split("@"))
 
-introduccion = input("Introducción: ")
-print(introduccion.split(" "))
+#introduccion = input("Introducción: ")
+#print(introduccion.split(" "))
+
+
