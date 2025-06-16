@@ -2,4 +2,11 @@
 
 variable = input("Dime algo: ")
 is_upper = variable.isupper()
-print("is this uppercase? " + str(is_upper))
+
+
+if not is_upper:
+    print(f"Tu palabra: {variable}. No esta en mayusculas")
+else:
+    print("Tu palabra esta en mayusculas")
+
+
