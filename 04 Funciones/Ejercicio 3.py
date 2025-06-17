@@ -59,7 +59,9 @@ def get_mejor_alumno():
             mejor_media = media
             mejor_alumno = nombre
 
-    return mejor_alumno, mejor_media
+    return f"El mejor alumno es {mejor_alumno}, con una media de {round(mejor_media, 2)}"
+print("\n--------------------------------------------------------------------------------------\n\n")
 
-print(get_nota_media("lengua"))
-print(get_mejor_alumno())
+print("- La media de la clase es: ", get_nota_media("lengua"),"\n")
+print("-", get_mejor_alumno(), "\n")
+print("\n--------------------------------------------------------------------------------------")

@@ -1,6 +1,6 @@
 # Ejercicio 2
-# Crear una funcion que dada una lista de series (cada serie tiene titulo, capitulos, finalizada, capitulos_vistos)
-# nos devuelva las serues que han finalizado pero no hemos terminado de ver
+# Crear una funcion que dada una lista de series (cada serie tiene título, capitulos, finalizada, capitulos_vistos)
+# nos devuelva las series que han finalizado, pero no hemos terminado de ver
 
 series = [
     {
@@ -43,4 +43,11 @@ def series_finalizadas_sin_acabar(series_lista):
 
     return series_pendientes
 
-print(series_finalizadas_sin_acabar(series))
+porVer = series_finalizadas_sin_acabar(series)
+
+print("\n-------------------------------------------------------------------------------------\n\n")
+
+for seriesPV in porVer:
+    print(f"- {seriesPV}\n")
+
+print("\n--------------------------------------------------------------------------------------")
