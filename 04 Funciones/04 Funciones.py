@@ -58,3 +58,16 @@ def filtrar_productos(nombre=None, precio_max=None, stock=None):
     return lista_productos_filtrados
 
 print(filtrar_productos(precio_max=10, nombre="Nintendo Switch"))
+
+
+# Funciones recursivas
+
+
+# fact = un numero multiplicado por si mismo restando uno cada vez hasta llegar al uno ej: 5! -> 5*4*3*2*1
+def factorial(num):
+    if num == 1:
+        return num
+
+    return num * factorial(num - 1)
+
+print(factorial(996))
