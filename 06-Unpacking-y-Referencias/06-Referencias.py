@@ -6,10 +6,7 @@ json = {
     "edad": 50
 }
 
-yaml = {**json} #esto apunta al mismo bloque de memoria que json por lo que si muto yaml muto json
-yaml["nombre"] = "Yaml"
-
-
+yaml = {**json, "nombre": "Yaml"}  #esto apunta al mismo bloque de memoria que json por lo que si muto yaml muto json
 
 # Copia/Fusion
 

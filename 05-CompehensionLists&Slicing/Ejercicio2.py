@@ -6,14 +6,14 @@ import re
 
 text = input("Gimme a text to check whether its a palindrome: ")
 
-def CheckPalindrome():
+def check_palindrome():
     cleantext = text.lower().replace(' ', '')
     palindrome = cleantext[::-1]
     if cleantext == palindrome:
         print("Your text is a palindrome.")
     else: print("That's not a palindrome")
 
-CheckPalindrome()
+check_palindrome(text)
 
 
 

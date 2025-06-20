@@ -70,4 +70,4 @@ def factorial(num):
 
     return num * factorial(num - 1)
 
-print(factorial(996))
+print(factorial(900))
