@@ -11,7 +11,7 @@ class Animal:
         base_defense = (self.dexterity + self.constitution) / 2
 
         random_modifier = random.randint(-int(base_defense * 0.3), int(base_defense * 0.3))
-        return base_defense + random_modifier
+        return max(0, base_defense + random_modifier)
 
     def damage_calc(self, strength):
         return strength - self.calculate_defense()
@@ -29,6 +29,9 @@ class Animal:
     def ded_check(self):
         return self.constitution <= 0
 
+    def shotgun(self):
+        return max(0, random.randint(0, self.dexterity))
+
 
 tiger = Animal("Tony", 35, 10, 40)
 bear = Animal("Bruno", 38, 8, 45)
@@ -39,28 +42,37 @@ platypus = Animal("Perry", 20, 15, 20)
 
 
 def fight_to_death(animal1, animal2):
+
     print(f"{animal1.name} vs {animal2.name} - FIGHT!")
 
     turn = 1
     while not animal1.ded_check() and not animal2.ded_check():
         print(f"\n--- Turn {turn} ---")
 
-        # Animal 1 attacks
-        print(f"{animal1.name} attacks {animal2.name}!")
-        animal1.atac(animal2)
-        print(f"{animal2.name} health: {animal2.constitution}")
+        speed1 = animal1.shotgun()
+        speed2 = animal2.shotgun()
 
-        if animal2.ded_check():
-            print(f"{animal2.name} is DEAD! {animal1.name} wins!")
+        if speed1 >= speed2:
+            first, second = animal1, animal2
+        else:
+            first, second = animal2, animal1
+
+        # Animal 1 attacks
+        print(f"{first.name} attacks {second.name}!")
+        first.atac(second)
+        print(f"{second.name} health: {second.constitution}")
+
+        if second.ded_check():
+            print(f"{second.name} is DEAD! {first.name} wins!")
             break
 
         # Animal 2 attacks back
-        print(f"{animal2.name} attacks {animal1.name}!")
-        animal2.atac(animal1)
-        print(f"{animal1.name} health: {animal1.constitution}")
+        print(f"{second.name} attacks {first.name}!")
+        second.atac(first)
+        print(f"{first.name} health: {first.constitution}")
 
-        if animal1.ded_check():
-            print(f"{animal1.name} is DEAD! {animal2.name} wins!")
+        if first.ded_check():
+            print(f"{first.name} is DEAD! {second.name} wins!")
             break
 
         turn += 1
