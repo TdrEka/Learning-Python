@@ -1,0 +1,40 @@
+pizza={
+id,
+name,
+description,
+url,
+price->getter(sum(cost.ingredients) * 1.2 )
+ingredients:[{id, name, cost}]
+}
+
+ingredients:{
+id,
+name,
+cost
+}
+
+1. dominio -> la logica de la applicacion
+3. servicios ->
+    validar la entrada de usuario
+    gestionar logger
+    gestionar transacciones en base de datos
+    mapear -> crear la entidad del dominio
+        dominio-> mapear a la salida
+
+2. infraestructura
+    persistencia en base de datos o ficheros
+
+4. controlador -> HTTP ->
+        crear
+        modificar
+        delete
+        recuperar por id
+        decuperar por query
+
+            --- dominio ---
+controlador -> servicio -> infraestructura -> base de datos
+
+dominio
+infraestructura
+servicio
+controlador
