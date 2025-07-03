@@ -1,0 +1,69 @@
+pizza = {
+    idm name, description, url, ingredients:[{...},{...}]
+}
+
+actions -> read, modify, delete, make
+
+server : http://localhost:5000 127.0.0.1:5000
+/pizza
+/ingredients
+
+1. proper URL rules
+    1. urls should pluralize the resource
+        /pizzas (ok) /pizza (no)
+
+    2. our url shouldn't express actions
+        /pizzas/add (NEIN! ANHALTE!)  / pizzas verb POST (ok)
+        POST -> make
+        GET -> read
+        PUT|PATCH -> modify
+        DELETE -> delete
+
+    3. Our url shouldn't specify format
+        xml -> not really used
+        json -> often used
+
+        /pizzas.json(no) /pizzas
+                    accept:application/json|xml
+                    content-type:application/json|xml
+
+2. Versioning
+        /v1/pizzas
+        /v2/pizzas
+
+Actions
+1. Create a resource
+    Request
+        Path: /pizzas
+        Method: POST
+
+        headers
+            accept application/json
+            content-type application/json
+
+        body:
+            {
+                ....
+            }
+
+
+    Response
+        Headers
+            content-type application/json
+        Body
+            {
+                id,...
+            } | Empty
+
+        Status
+        OK                  ERROR
+        200                 400 -> Bad Request (Validation)
+        204                 404 -> Not Found
+                            405 -> Not Allowed Method
+                            415 -> MediaType not Allowed
+
+                            401 -> Authentication err
+                            403 -> Unauthorised
+
+
+
